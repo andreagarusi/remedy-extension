@@ -1,3 +1,13 @@
+// Notifica ricarica pagina 3 minuti prima
+setTimeout(function() {
+    notify("reload", "Remedy verrà ricaricato fra 3 minuti");
+}, 27 * 60 * 1000);
+
+// Ricarica pagina ogni 30 minuti
+setTimeout(function() {
+    location.reload();
+}, 30 * 60 * 1000);
+
 if ("Notification" in window) {
     Notification.requestPermission().then(function(permission) {
         if (permission === "granted") {
@@ -107,7 +117,7 @@ function notify(id, title) {
     if (Notification.permission === "granted") {
         var options = {
             tag: id,
-            body: "Ticket in scadenza >> " + id,
+            body: id,
         };
 
         var notification = new Notification(title, options);
