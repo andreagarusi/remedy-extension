@@ -1,14 +1,6 @@
-// Notifica ricarica pagina 3 minuti prima
-setTimeout(function() {
-    notify("reload", "Remedy verrà ricaricato fra 3 minuti");
-}, 27 * 60 * 1000);
-
-// Ricarica pagina ogni 30 minuti
-setTimeout(function() {
-    location.reload();
-}, 30 * 60 * 1000);
-
+// Controllo se il browser supporta le notifiche
 if ("Notification" in window) {
+    // Richiesta all'utente abilitazione notifiche
     Notification.requestPermission().then(function(permission) {
         if (permission === "granted") {
             console.log("Permesso per le notifiche ottenuto.");
@@ -16,11 +8,11 @@ if ("Notification" in window) {
             console.log("Permesso per le notifiche negato.");
         }
     });
-
 } else {
     console.log("Le notifiche non sono supportate in questo browser.");
 }
 
+// Funzione principale: parsing tabella home screen ogni 5 sec.
 window.setInterval(function() {
     // Trova la tabella tramite l'ID
     const table = document.getElementById("T301444200");
@@ -53,14 +45,14 @@ window.setInterval(function() {
                             cell.classList.add("assegnato");
                             // SLA per gli assegnati di 30 minuti (margine 27 min)
                             if (checkDateSLA(rowData["Data inoltro"], 27)) {
-                                notify(rowData["ID richiesta"], "Ticket Assegnato in scadenza");
+                                notifier(rowData["ID richiesta"], "Ticket Assegnato in scadenza");
                             }
                             break;
                         case "in corso":
                             cell.classList.add("incorso");
                             // SLA per gli in corso di 4 ore (margine 3h e 30 min)
                             if (checkDateSLA(rowData["Data inoltro"], 3 * 60 + 30)) {
-                                notify(rowData["ID richiesta"], "Ticket In corso in scadenza");
+                                notifier(rowData["ID richiesta"], "Ticket In corso in scadenza");
                             }
                             break;
                         case "pendente":
@@ -113,7 +105,7 @@ function checkDateSLA(inputStringDate, timeInMinutes) {
     }
 }
 
-function notify(id, title) {
+function notifier(id, title) {
     if (Notification.permission === "granted") {
         var options = {
             tag: id,
