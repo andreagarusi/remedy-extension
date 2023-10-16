@@ -1,0 +1,62 @@
+.assegnato {
+    background-color: #ffcdd2 !important;
+}
+
+.incorso {
+    background-color: #c8e6c9 !important;
+}
+
+.pendente {
+    background-color: #ffe0b2 !important;
+}
+
+.risolto {
+    background-color: #b3e5fc !important;
+}
+
+.chiuso {
+    background-color: #e0e0e0 !important;
+}
+
+#T301389614 td:nth-child(2) {
+    overflow-y: auto !important;
+}
+
+#T301389614 td:nth-child(2) span {
+    font-family: Courier !important;
+    padding: 4px !important;
+}
+
+#T301389614 span {
+    max-height: 75px !important;
+    white-space: break-spaces !important;
+    word-wrap: break-word !important;
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
