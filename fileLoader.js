@@ -3,13 +3,13 @@ var domainPrefix = 'https://andreagarusi.github.io/remedy-extension/';
 
 // Array di URL dei file JavaScript da caricare
 var jsFiles = [
-    domainPrefix + 'script.js',
+    domainPrefix + 'scripts/bootstrapLoader.js',
     // domainPrefix + 'otherFile.js',
 ];
 
 // Array di URL dei file CSS da caricare
 var cssFiles = [
-    domainPrefix + 'style.css',
+    // domainPrefix + 'styles/style.css',
     // domainPrefix + 'otherFile.css',
 ];
 
