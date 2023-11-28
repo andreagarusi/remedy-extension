@@ -24,7 +24,12 @@
 /* note view */
 
 .Editor,
-#T301389614 td:nth-child(2) span {
+#T301389614 td:nth-child(2) span,
+#arid_WIN_3_1000000151,
+#arid_WIN_3_1000000000,
+#arid_WIN_3_304247080,
+#arid_WIN_5_8,
+#arid_WIN_5_10000101 {
     font-family: monospace !important;
 }
 
