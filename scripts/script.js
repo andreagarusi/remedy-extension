@@ -76,8 +76,6 @@ window.setInterval(function() {
         // Stampa la matrice data
         // console.log(data);
 
-    } else {
-        console.error("La tabella con l'ID specificato non esiste.");
     }
 
 }, 5 * 1000);
