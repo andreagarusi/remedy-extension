@@ -1,3 +1,5 @@
+/* console view */
+
 .assegnato {
     background-color: #ffcdd2 !important;
 }
@@ -17,6 +19,9 @@
 .chiuso {
     background-color: #e0e0e0 !important;
 }
+
+
+/* note view */
 
 .Editor,
 #T301389614 td:nth-child(2) span {
@@ -51,4 +56,28 @@
 
 #T301389614 td:nth-child(2)::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+
+/* navbar */
+
+#WIN_0_303633100,
+#WIN_0_301493400,
+#WIN_0_80137 {
+    display: none !important;
+}
+
+#WIN_0_303635200 {
+    height: 25px !important;
+}
+
+
+/* ticket view */
+
+#WIN_3_304195400 {
+    display: none !important;
+}
+
+#WIN_3_303611000 {
+    padding-top: 10px !important;
 }
