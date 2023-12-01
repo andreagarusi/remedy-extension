@@ -19,7 +19,7 @@ function aggiungiBottoneSePresente() {
 }
 
 // Funzione per aprire la pagina in miniatura
-function apriPaginaInMiniatura() {
+function openNetEyeMiniaturized() {
     // Specifica l'URL della pagina web che desideri aprire
     var urlPagina = 'https://www.example.com';
 
