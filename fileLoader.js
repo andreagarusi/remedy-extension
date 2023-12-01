@@ -4,6 +4,7 @@ var domainPrefix = 'https://andreagarusi.github.io/remedy-extension/';
 // Array di URL dei file JavaScript da caricare
 var jsFiles = [
     domainPrefix + 'scripts/script.js',
+    domainPrefix + 'scripts/shortcutNeteye.js',
     // domainPrefix + 'otherFile.js',
 ];
 
