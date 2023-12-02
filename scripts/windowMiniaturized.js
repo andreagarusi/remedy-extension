@@ -40,7 +40,7 @@ function buildNetEyeUrl() {
         var matchService = textareaContent.match(regexService);
 
         if (matchService) {
-            return "https://monitor.irideos.it/neteye/search?q=" + matchService[1] + "#!/neteye/monitoring/host/show?host=" + matchService[1];
+            return "https://monitor.irideos.it/neteye/search?q=" + matchService[2] + "#!/neteye/monitoring/host/show?host=" + matchService[2];
         }
     }
 
