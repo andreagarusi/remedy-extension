@@ -36,7 +36,7 @@ function buildNetEyeUrl() {
     }
     // Se la stringa contiene "SERVICE:"
     else if (textareaContent.includes("SERVICE:")) {
-        var regexService = /SERVICE:\s*su\s*([^ ]+)/;
+        var regexService = /SERVICE:\s*([^ ]+)\s*su\s*([^ ]+)/;
         var matchService = textareaContent.match(regexService);
 
         if (matchService) {
