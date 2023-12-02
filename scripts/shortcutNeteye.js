@@ -1,4 +1,4 @@
-function aggiungiBottoneSePresente() {
+function addBtnNetEye() {
     var interval = setInterval(function() {
         var divNote = document.getElementById('WIN_3_1000000151');
 
@@ -18,22 +18,19 @@ function aggiungiBottoneSePresente() {
     }, 1000);
 }
 
-// Funzione per aprire la pagina in miniatura
-function openNetEyeMiniaturized() {
-    // Specifica l'URL della pagina web che desideri aprire
-    var urlPagina = 'https://www.example.com';
+function openWindowMiniaturized() {
+    var pageUrl = 'https://www.example.com';
 
     // Specifica le dimensioni della finestra in miniatura
-    var larghezzaFinestra = 400;
-    var altezzaFinestra = 300;
+    var windowWidth = 400;
+    var windowHeight = 300;
 
     // Calcola la posizione centrale della finestra principale
-    var xPos = (window.innerWidth - larghezzaFinestra) / 2;
-    var yPos = (window.innerHeight - altezzaFinestra) / 2;
+    var xPos = (window.innerWidth - windowWidth) / 2;
+    var yPos = (window.innerHeight - windowHeight) / 2;
 
-    // Apre una nuova finestra con l'URL specificato e le dimensioni desiderate
-    window.open(urlPagina, 'PaginaMiniatura', 'width=' + larghezzaFinestra + ', height=' + altezzaFinestra + ', top=' + yPos + ', left=' + xPos);
+    // Apertura di una nuova finestra con l'URL e le dimensioni specificate
+    window.open(pageUrl, 'Window Miniaturized', 'width=' + windowWidth + ', height=' + windowHeight + ', top=' + yPos + ', left=' + xPos);
 }
 
-// Chiamare la funzione per aggiungere il bottone se l'elemento è presente
-aggiungiBottoneSePresente();
+addBtnNetEye();
