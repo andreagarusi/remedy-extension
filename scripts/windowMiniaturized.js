@@ -8,7 +8,8 @@ function addBtnNetEye() {
             btnNetEye.textContent = "NetEye";
             btnNetEye.id = "btnNetEye";
             btnNetEye.onclick = function() {
-                openWindowMiniaturized(buildNetEyeUrl());
+                var NetEyeUrl = buildNetEyeUrl();
+                openWindowMiniaturized(NetEyeUrl);
             };
 
             // Aggiunta btnNetEye all"elemento div
@@ -30,8 +31,7 @@ function buildNetEyeUrl() {
         var matchHost = textareaContent.match(regexHost);
 
         if (matchHost) {
-            // return "https://monitor.irideos.it/neteye/search?q=" + matchHost[1] + "#!/neteye/monitoring/host/show?host=" + matchHost[1];
-            console.log("https://monitor.irideos.it/neteye/search?q=" + matchHost[1] + "#!/neteye/monitoring/host/show?host=" + matchHost[1]);
+            return "https://monitor.irideos.it/neteye/search?q=" + matchHost[1] + "#!/neteye/monitoring/host/show?host=" + matchHost[1];
         }
     }
     // Se la stringa contiene "SERVICE:"
@@ -40,8 +40,7 @@ function buildNetEyeUrl() {
         var matchService = textareaContent.match(regexService);
 
         if (matchService) {
-            // return "https://monitor.irideos.it/neteye/search?q=" + matchService[1] + "#!/neteye/monitoring/host/show?host=" + matchService[1];
-            console.log("https://monitor.irideos.it/neteye/search?q=" + matchService[1] + "#!/neteye/monitoring/host/show?host=" + matchService[1]);
+            return "https://monitor.irideos.it/neteye/search?q=" + matchService[1] + "#!/neteye/monitoring/host/show?host=" + matchService[1];
         }
     }
 
