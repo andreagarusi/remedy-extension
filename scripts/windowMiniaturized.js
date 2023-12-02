@@ -8,7 +8,6 @@ function addBtnNetEye() {
             btnNetEye.textContent = "NetEye";
             btnNetEye.id = "btnNetEye";
             btnNetEye.onclick = function() {
-                // openWindowMiniaturized("https://monitor.irideos.it/neteye/dashboard");
                 openWindowMiniaturized(buildNetEyeUrl());
             };
 
