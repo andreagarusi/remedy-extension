@@ -8,7 +8,8 @@ function addBtnNetEye() {
             btnNetEye.textContent = "NetEye";
             btnNetEye.id = "btnNetEye";
             btnNetEye.onclick = function() {
-                openWindowMiniaturized("https://monitor.irideos.it/neteye/dashboard");
+                // openWindowMiniaturized("https://monitor.irideos.it/neteye/dashboard");
+                openWindowMiniaturized(buildNetEyeUrl());
             };
 
             // Aggiunta btnNetEye all"elemento div
@@ -20,10 +21,37 @@ function addBtnNetEye() {
     }, 1000);
 }
 
+// Funzione per estrarre hostname dal campo Note, restituisce url NetEye
+function buildNetEyeUrl() {
+    var textareaContent = document.getElementById("arid_WIN_3_1000000151").value;
+
+    // Se la stringa contiene "HOST:"
+    if (textareaContent.includes("HOST:")) {
+        var regexHost = /HOST:\s*([^ ]+)/;
+        var matchHost = textareaContent.match(regexHost);
+
+        if (matchHost) {
+            return "https://monitor.irideos.it/neteye/search?q=" + matchHost[1] + "#!/neteye/monitoring/host/show?host=" + matchHost[1];
+        }
+    }
+    // Se la stringa contiene "SERVICE:"
+    else if (textareaContent.includes("SERVICE:")) {
+        var regexService = /SERVICE:\s*su\s*([^ ]+)/;
+        var matchService = textareaContent.match(regexService);
+
+        if (matchService) {
+            return "https://monitor.irideos.it/neteye/search?q=" + matchService[1] + "#!/neteye/monitoring/host/show?host=" + matchService[1];
+        }
+    }
+
+    // Restituisce url della dashboard NetEye se nessun match è stato trovato
+    return "https://monitor.irideos.it/neteye/dashboard";
+}
+
 function openWindowMiniaturized(pageUrl) {
     // Specifica le dimensioni della finestra in miniatura
-    var windowWidth = 400;
-    var windowHeight = 300;
+    var windowWidth = 800;
+    var windowHeight = 400;
 
     // Calcola la posizione centrale della finestra principale
     var xPos = (window.innerWidth - windowWidth) / 2;
