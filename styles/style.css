@@ -90,3 +90,11 @@
 #WIN_3_303611000 {
     padding-top: 10px !important;
 }
+
+
+/* NetEye button */
+
+#btnNetEye {
+    top: 10%;
+    left: 25%;
+}

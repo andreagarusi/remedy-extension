@@ -50,7 +50,7 @@ function buildNetEyeUrl() {
 
 function openWindowMiniaturized(pageUrl) {
     // Specifica le dimensioni della finestra in miniatura
-    var windowWidth = 100;
+    var windowWidth = 1000;
     var windowHeight = 500;
 
     // Calcola la posizione centrale della finestra principale
