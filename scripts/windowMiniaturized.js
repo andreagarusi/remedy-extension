@@ -7,7 +7,7 @@ function addBtnNetEye() {
             var btnNetEye = document.createElement('button');
             btnNetEye.textContent = 'NetEye';
             btnNetEye.id = 'btnNetEye';
-            btnNetEye.onclick = openNetEyeMiniaturized;
+            btnNetEye.onclick = openWindowMiniaturized;
 
             // Aggiunta btnNetEye all'elemento div
             divNote.appendChild(btnNetEye);
