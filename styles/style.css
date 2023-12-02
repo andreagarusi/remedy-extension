@@ -95,6 +95,7 @@
 /* NetEye button */
 
 #btnNetEye {
+    padding: 2px;
     top: 10%;
     left: 25%;
 }
