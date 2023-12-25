@@ -12,73 +12,58 @@ if ("Notification" in window) {
     console.log("Le notifiche non sono supportate in questo browser.");
 }
 
-// Funzione principale: parsing tabella home screen ogni 5 sec.
-window.setInterval(function() {
-    // Trova la tabella tramite l'ID
-    const table = document.getElementById("T301444200");
+function ticketTableChecker() {
+    const ticketTable = document.getElementById("T301444200");
+    const checkedTicketTable = document.querySelector('table[checked="true"]');
 
-    // Verifica se la tabella esiste
-    if (table) {
-        // Crea una matrice per memorizzare i dati della tabella
+    if (!checkedTicketTable && ticketTable) {
         const data = [];
+        const statoMap = {
+            "assegnato": {
+                class: "assigned",
+                marginSLA: 27,
+                messageSLA: "\u{1F3AB} Ticket Assegnato in scadenza"
+            },
+            "in corso": {
+                class: "inProgress",
+                marginSLA: 3 * 60 + 30,
+                messageSLA: "\u{26A0} Ticket In corso in scadenza"
+            },
+            "pendente": { class: "pending" },
+            "risolto": { class: "resolved" },
+            "chiuso": { class: "closed" }
+        };
 
-        // Ottieni tutte le righe della tabella tranne l'header
-        const rows = table.querySelectorAll("tbody tr:not(.hiddentablehdr)");
+        const rows = ticketTable.querySelectorAll("tbody tr:not(.hiddentablehdr)");
 
-        // Loop attraverso le righe della tabella
         rows.forEach((row) => {
-            // Ottieni tutte le celle della riga
             const cells = row.querySelectorAll("td");
-
-            // Crea un oggetto per memorizzare i dati di questa riga
             const rowData = {};
 
-            // Loop attraverso le celle e ottieni i dati
             cells.forEach((cell, index) => {
-                const header = table.querySelector(`tr.hiddentablehdr th:nth-child(${index + 1})`).textContent;
+                const header = ticketTable.querySelector(`tr.hiddentablehdr th:nth-child(${index + 1})`).textContent;
                 rowData[header] = cell.textContent.trim();
 
-                // Verifica cella sotto la colonna "Stato"
-                if (header === "Stato") {
-                    switch (rowData[header].toLowerCase()) {
-                        case "assegnato":
-                            cell.classList.add("assegnato");
-                            // SLA per gli assegnati di 30 minuti (margine 27 min)
-                            if (checkDateSLA(rowData["Data inoltro"], 27)) {
-                                notifier(rowData["ID richiesta"], "Ticket Assegnato in scadenza");
-                            }
-                            break;
-                        case "in corso":
-                            cell.classList.add("incorso");
-                            // SLA per gli in corso di 4 ore (margine 3h e 30 min)
-                            if (checkDateSLA(rowData["Data inoltro"], 3 * 60 + 30)) {
-                                notifier(rowData["ID richiesta"], "Ticket In corso in scadenza");
-                            }
-                            break;
-                        case "pendente":
-                            cell.classList.add("pendente");
-                            break;
-                        case "risolto":
-                            cell.classList.add("risolto");
-                            break;
-                        case "chiuso":
-                            cell.classList.add("chiuso");
-                            break;
-                        default:
+                if (header === "Stato" && statoMap[rowData[header].toLowerCase()]) {
+                    const statoData = statoMap[rowData[header].toLowerCase()];
+                    cell.classList.add(statoData.class);
+
+                    if (statoData.marginSLA && checkDateSLA(rowData["Data inoltro"], statoData.marginSLA)) {
+                        notifier(rowData["ID richiesta"], statoData.messageSLA);
                     }
                 }
             });
 
-            // Aggiungi l'oggetto rowData alla matrice data
             data.push(rowData);
         });
 
-        // Stampa la matrice data
-        // console.log(data);
-
+        ticketTable.setAttribute("checked", "true");
     }
+}
 
-}, 5 * 1000);
+
+// Verifica elementi della tabella ticket ogni 0,5 sec
+setInterval(ticketTableChecker, 500);
 
 function checkDateSLA(inputStringDate, timeInMinutes) {
     // Dividi la stringa in data e orario

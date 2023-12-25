@@ -1,22 +1,22 @@
 /* console view */
 
-.assegnato {
+.assigned {
     background-color: #ffcdd2 !important;
 }
 
-.incorso {
+.inProgress {
     background-color: #c8e6c9 !important;
 }
 
-.pendente {
+.pending {
     background-color: #ffe0b2 !important;
 }
 
-.risolto {
+.resolved {
     background-color: #b3e5fc !important;
 }
 
-.chiuso {
+.closed {
     background-color: #e0e0e0 !important;
 }
 

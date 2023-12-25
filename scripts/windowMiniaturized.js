@@ -1,25 +1,28 @@
 function addBtnNetEye() {
-    var interval = setInterval(function() {
-        var divNote = document.getElementById("WIN_3_1000000151");
+    var mainDivNote = document.getElementById("WIN_3_1000000151");
+    var searchDivNote = document.getElementById("WIN_4_1000000151");
 
-        // Verifica se l"elemento div esiste
-        if (divNote) {
-            var btnNetEye = document.createElement("button");
-            btnNetEye.textContent = "NetEye";
-            btnNetEye.id = "btnNetEye";
-            btnNetEye.onclick = function() {
-                var NetEyeUrl = buildNetEyeUrl();
-                openWindowMiniaturized(NetEyeUrl);
-            };
+    // Verifica se il bottone "NetEye" non è già stato aggiunto
+    if (!document.getElementById("btnNetEye")) {
+        var btnNetEye = document.createElement("button");
+        btnNetEye.textContent = "NetEye";
+        btnNetEye.id = "btnNetEye";
+        btnNetEye.onclick = function() {
+            var NetEyeUrl = buildNetEyeUrl();
+            openWindowMiniaturized(NetEyeUrl);
+        };
 
-            // Aggiunta btnNetEye all"elemento div
-            divNote.appendChild(btnNetEye);
-
-            // Interrompe l"esecuzione periodica dopo aver aggiunto il btnNetEye
-            clearInterval(interval);
+        // Verifica se è presente l'elemento mainDivNote e aggiunge il bottone a mainDivNote, altrimenti verifica searchDivNote
+        if (mainDivNote) {
+            mainDivNote.appendChild(btnNetEye);
+        } else if (searchDivNote) {
+            searchDivNote.appendChild(btnNetEye);
         }
-    }, 1000);
+    }
 }
+
+// Esegui la funzione addBtnNetEye ogni 1 secondo
+setInterval(addBtnNetEye, 1000);
 
 // Funzione per estrarre hostname dal campo Note, restituisce url NetEye
 function buildNetEyeUrl() {
@@ -57,7 +60,7 @@ function openWindowMiniaturized(pageUrl) {
     var xPos = (window.innerWidth - windowWidth) / 2;
     var yPos = (window.innerHeight - windowHeight) / 2;
 
-    // Apertura di una nuova finestra con l"URL e le dimensioni specificate
+    // Apertura di una nuova finestra con l'URL e le dimensioni specificate
     window.open(pageUrl, "Window Miniaturized", "width=" + windowWidth + ", height=" + windowHeight + ", top=" + yPos + ", left=" + xPos);
 }
 
