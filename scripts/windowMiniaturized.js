@@ -1,9 +1,8 @@
 function addBtnNetEye() {
-    var mainDivNote = document.getElementById("WIN_3_1000000151");
-    var searchDivNote = document.getElementById("WIN_4_1000000151");
+    const mainDivNote = document.getElementById("WIN_3_1000000151");
+    const searchDivNote = document.getElementById("WIN_4_1000000151");
 
-    // Verifica se il bottone "NetEye" non è già stato aggiunto
-    if (!document.getElementById("btnNetEye")) {
+    if (!mainDivNote.querySelector("#btnNetEye")) {
         var btnNetEye = document.createElement("button");
         btnNetEye.textContent = "NetEye";
         btnNetEye.id = "btnNetEye";
@@ -11,15 +10,15 @@ function addBtnNetEye() {
             var NetEyeUrl = buildNetEyeUrl();
             openWindowMiniaturized(NetEyeUrl);
         };
+        
+        mainDivNote.appendChild(btnNetEye);
+    }
 
-        // Verifica se è presente l'elemento mainDivNote e aggiunge il bottone a mainDivNote, altrimenti verifica searchDivNote
-        if (mainDivNote) {
-            mainDivNote.appendChild(btnNetEye);
-        } else if (searchDivNote) {
-            searchDivNote.appendChild(btnNetEye);
-        }
+    if (!searchDivNote.querySelector("#btnNetEye")) {
+        searchDivNote.appendChild(btnNetEye);
     }
 }
+
 
 // Esegui la funzione addBtnNetEye ogni 1 secondo
 setInterval(addBtnNetEye, 1000);
