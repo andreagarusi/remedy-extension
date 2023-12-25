@@ -2,10 +2,10 @@ function addBtnNetEye() {
     const mainDivNote = document.getElementById("WIN_3_1000000151");
     const searchDivNote = document.getElementById("WIN_4_1000000151");
 
-    if (!mainDivNote.querySelector("#btnNetEye")) {
+    if (!mainDivNote.querySelector("[custom-id='btnNetEye']")) {
         var btnNetEye = document.createElement("button");
         btnNetEye.textContent = "NetEye";
-        btnNetEye.id = "btnNetEye";
+        btnNetEye.setAttribute("custom-id", "btnNetEye");
         btnNetEye.onclick = function() {
             var NetEyeUrl = buildNetEyeUrl();
             openWindowMiniaturized(NetEyeUrl);
@@ -14,7 +14,7 @@ function addBtnNetEye() {
         mainDivNote.appendChild(btnNetEye);
     }
 
-    if (!searchDivNote.querySelector("#btnNetEye")) {
+    if (!searchDivNote.querySelector("[custom-id='btnNetEye']")) {
         searchDivNote.appendChild(btnNetEye);
     }
 }
