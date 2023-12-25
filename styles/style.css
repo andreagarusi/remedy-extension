@@ -94,7 +94,8 @@
 
 /* NetEye button */
 
-#btnNetEye {
+#btnNetEyeMain,
+#btnNetEyeSearch {
     padding: 2px;
     top: 10%;
     left: 25%;
