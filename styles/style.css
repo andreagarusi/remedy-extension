@@ -96,7 +96,14 @@
 
 #btnNetEyeMain,
 #btnNetEyeSearch {
-    padding: 2px;
-    top: 10%;
-    left: 25%;
+    width: 20%;
+    height: 100%;
+    left: 15%;
+    border: none;
+    cursor: pointer;
+    background-image: url(https://www.neteye-blog.com/wp-content/uploads/2017/12/WP_NetEye.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: transparent;
 }
