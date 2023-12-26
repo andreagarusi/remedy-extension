@@ -36,25 +36,12 @@ setInterval(addBtnNetEye, 1000);
 
 // Funzione per estrarre hostname dal campo Note, restituisce url NetEye
 function buildNetEyeUrl() {
-    var textareaContent = document.getElementById("arid_WIN_3_1000000151").value;
+    var noteContent = document.getElementById("arid_WIN_3_1000000151").value;
+    var regex = /[A-Za-z0-9]+-[A-Za-z0-9]+@([A-Za-z0-9]+(\.[A-Za-z0-9]+)+)|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)\.([A-Za-z0-9]+(-[A-Za-z0-9]+)+)\.[A-Za-z0-9]+|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)_[A-Za-z0-9]+|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)/;
+    var matchHostname = noteContent.match(regex);
 
-    // Se la stringa contiene "HOST:"
-    if (textareaContent.includes("HOST:")) {
-        var regexHost = /HOST:\s*([^ ]+)/;
-        var matchHost = textareaContent.match(regexHost);
-
-        if (matchHost) {
-            return "https://monitor.irideos.it/neteye/search?q=" + matchHost[1] + "#!/neteye/monitoring/host/show?host=" + matchHost[1];
-        }
-    }
-    // Se la stringa contiene "SERVICE:"
-    else if (textareaContent.includes("SERVICE:")) {
-        var regexService = /SERVICE:\s*([^ ]+)\s*su\s*([^ ]+)/;
-        var matchService = textareaContent.match(regexService);
-
-        if (matchService) {
-            return "https://monitor.irideos.it/neteye/search?q=" + matchService[2] + "#!/neteye/monitoring/host/show?host=" + matchService[2];
-        }
+    if (matchHostname) {
+        return "https://monitor.irideos.it/neteye/search?q=" + matchHostname[1] + "#!/neteye/monitoring/host/show?host=" + matchHostname[1];
     }
 
     // Restituisce url della dashboard NetEye se nessun match è stato trovato
