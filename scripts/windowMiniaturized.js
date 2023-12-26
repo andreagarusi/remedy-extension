@@ -41,8 +41,8 @@ function buildNetEyeUrl() {
     var matchHostname = noteContent.match(regex);
 
     if (matchHostname) {
-        console.log(matchHostname);
-        return "https://monitor.irideos.it/neteye/search?q=" + matchHostname[1] + "#!/neteye/monitoring/host/show?host=" + matchHostname[1];
+        // console.log(matchHostname);
+        return "https://monitor.irideos.it/neteye/search?q=" + matchHostname[0] + "#!/neteye/monitoring/host/show?host=" + matchHostname[0];
     }
 
     // Restituisce url della dashboard NetEye se nessun match è stato trovato
