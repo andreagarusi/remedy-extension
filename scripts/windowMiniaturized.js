@@ -31,8 +31,8 @@ function addBtnNetEye() {
     }
 }
 
-// Esegui la funzione addBtnNetEye ogni 1 secondo
-setInterval(addBtnNetEye, 1000);
+// Esegui la funzione addBtnNetEye ogni 1,5 secondo
+setInterval(addBtnNetEye, 1500);
 
 // Funzione per estrarre hostname dal campo Note, restituisce url NetEye
 function buildNetEyeUrl() {
@@ -61,5 +61,3 @@ function openWindowMiniaturized(pageUrl) {
     // Apertura di una nuova finestra con l'URL e le dimensioni specificate
     window.open(pageUrl, "Window Miniaturized", "width=" + windowWidth + ", height=" + windowHeight + ", top=" + yPos + ", left=" + xPos);
 }
-
-addBtnNetEye();
