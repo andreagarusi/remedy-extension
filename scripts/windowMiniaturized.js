@@ -5,7 +5,7 @@ function addBtnNetEye() {
     if (mainDivNote) {
         if (!mainDivNote.querySelector("#btnNetEyeMain")) {
             var btnNetEyeMain = document.createElement("button");
-            btnNetEyeMain.textContent = "NetEye";
+            btnNetEyeMain.textContent = "";
             btnNetEyeMain.id = "btnNetEyeMain";
             btnNetEyeMain.onclick = function() {
                 var NetEyeUrl = buildNetEyeUrl();
@@ -19,7 +19,7 @@ function addBtnNetEye() {
     if (searchDivNote) {
         if (!searchDivNote.querySelector("#btnNetEyeSearch")) {
             var btnNetEyeSearch = document.createElement("button");
-            btnNetEyeSearch.textContent = "NetEye";
+            btnNetEyeSearch.textContent = "";
             btnNetEyeSearch.id = "btnNetEyeSearch";
             btnNetEyeSearch.onclick = function() {
                 var NetEyeUrl = buildNetEyeUrl();
