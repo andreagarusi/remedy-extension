@@ -3,7 +3,7 @@ function addBtnNetEye() {
     const searchDivNote = document.getElementById("WIN_4_1000000151");
 
     if (mainDivNote) {
-        if (!mainDivNote.querySelector("#btnNetEye")) {
+        if (!mainDivNote.querySelector("#btnNetEyeMain")) {
             var btnNetEyeMain = document.createElement("button");
             btnNetEyeMain.textContent = "NetEye";
             btnNetEyeMain.id = "btnNetEyeMain";
@@ -17,7 +17,7 @@ function addBtnNetEye() {
     }
 
     if (searchDivNote) {
-        if (!searchDivNote.querySelector("#btnNetEye")) {
+        if (!searchDivNote.querySelector("#btnNetEyeSearch")) {
             var btnNetEyeSearch = document.createElement("button");
             btnNetEyeSearch.textContent = "NetEye";
             btnNetEyeSearch.id = "btnNetEyeSearch";
