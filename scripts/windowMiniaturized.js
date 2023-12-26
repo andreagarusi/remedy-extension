@@ -41,6 +41,7 @@ function buildNetEyeUrl() {
     var matchHostname = noteContent.match(regex);
 
     if (matchHostname) {
+        console.log(matchHostname);
         return "https://monitor.irideos.it/neteye/search?q=" + matchHostname[1] + "#!/neteye/monitoring/host/show?host=" + matchHostname[1];
     }
 
