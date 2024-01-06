@@ -83,7 +83,7 @@ const observer = new MutationObserver(handleElementAdded);
 const config = { childList: true, subtree: true };
 
 // Specificare l'elemento target da osservare
-const targetNode = document.body; // Puoi specificare un elemento più specifico se necessario
+const targetNode = document.body;
 
 // Avviare l'osservazione
 observer.observe(targetNode, config);
