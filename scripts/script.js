@@ -16,7 +16,7 @@ function ticketTableChecker() {
     const ticketTable = document.getElementById("T301444200");
     const checkedTicketTable = document.querySelector('table[checked="true"]');
 
-    if (!checkedTicketTable && ticketTable) {
+    if (ticketTable && !checkedTicketTable) {
         const data = [];
         const statoMap = {
             "assegnato": {
