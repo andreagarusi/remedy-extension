@@ -31,7 +31,7 @@ function ticketTableChecker() {
             },
             "pendente": { class: "pending" },
             "risolto": { class: "resolved" },
-            "chiuso": { class: "closed" }
+            "chiuso": { class: "closedRow" }
         };
 
         const rows = ticketTable.querySelectorAll("tbody tr:not(.hiddentablehdr)");
@@ -54,13 +54,16 @@ function ticketTableChecker() {
                 }
             });
 
+            if (rowData["Stato"].toLowerCase() === "chiuso") {
+                row.classList.add("closedRow");
+            }
+
             data.push(rowData);
         });
 
         ticketTable.setAttribute("checked", "true");
     }
 }
-
 
 // Verifica elementi della tabella ticket ogni 0,5 sec
 setInterval(ticketTableChecker, 500);
