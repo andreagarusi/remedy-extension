@@ -1,6 +1,6 @@
 function addBtnNetEye() {
     const mainDivNote = document.getElementById("WIN_3_1000000151");
-    const searchDivNote = document.getElementById("WIN_5_303714200");
+    const searchDivNote = document.getElementById("WIN_4_1000000151");
 
     if (mainDivNote) {
         if (!mainDivNote.querySelector("#btnNetEyeMain")) {
