@@ -58,12 +58,35 @@ function ticketTableChecker() {
         });
 
         ticketTable.setAttribute("checked", "true");
+
+        // Rimuovi l'osservatore dopo la prima esecuzione
+        observer.disconnect();
     }
 }
 
+// Funzione di gestione per l'Observer API
+function handleElementAdded(mutationsList, observer) {
+    for (let mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+            // L'elemento target è stato aggiunto al DOM
+            console.log('L\'elemento target è stato aggiunto al DOM!');
+            // Esegui la funzione di verifica
+            ticketTableChecker();
+        }
+    }
+}
 
-// Verifica elementi della tabella ticket ogni 0,5 sec
-setInterval(ticketTableChecker, 500);
+// Creare un observer con la funzione di gestione
+const observer = new MutationObserver(handleElementAdded);
+
+// Definire le opzioni di osservazione
+const config = { childList: true, subtree: true };
+
+// Specificare l'elemento target da osservare
+const targetNode = document.body; // Puoi specificare un elemento più specifico se necessario
+
+// Avviare l'osservazione
+observer.observe(targetNode, config);
 
 function checkDateSLA(inputStringDate, timeInMinutes) {
     // Dividi la stringa in data e orario
