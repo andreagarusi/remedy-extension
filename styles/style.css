@@ -50,6 +50,7 @@
 
 #T301389614 td:nth-child(2) span {
     padding: 4px !important;
+    padding-right: 0 !important;
 }
 
 #T301389614 span {
