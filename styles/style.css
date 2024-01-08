@@ -30,17 +30,8 @@
 
 /* note view */
 
-.Editor,
-#T301389614 td:nth-child(2) span,
-#arid_WIN_3_1000000151,
-#arid_WIN_3_1000000000,
-#arid_WIN_3_304247080,
-#arid_WIN_5_8,
-#arid_WIN_5_10000101,
-#arid_WIN_5_600000049,
-#arid_WIN_0_1000000048,
-#arid_WIN_0_1000000826,
-#arid_WIN_0_1000000827 {
+input,
+textarea {
     font-family: monospace !important;
 }
 
