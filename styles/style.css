@@ -31,7 +31,8 @@
 /* note view */
 
 input,
-textarea {
+textarea,
+#T301389614 td:nth-child(2) span {
     font-family: monospace !important;
 }
 
