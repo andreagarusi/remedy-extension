@@ -31,7 +31,8 @@
 /* note view */
 
 input,
-textarea {
+textarea,
+.Editor {
     font-family: monospace !important;
 }
 
