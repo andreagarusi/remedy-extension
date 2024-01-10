@@ -31,7 +31,7 @@ function addBtnNetEye() {
         }
     }
 
-    if (searchDivNote) {
+    if (searchDivNoteTwo) {
         if (!searchDivNoteTwo.querySelector("#btnNetEyeSearchTwo")) {
             var btnNetEyeSearch = document.createElement("button");
             btnNetEyeSearch.textContent = "";
