@@ -1,6 +1,7 @@
 function addBtnNetEye() {
     const mainDivNote = document.getElementById("WIN_3_1000000151");
     const searchDivNote = document.getElementById("WIN_4_1000000151");
+    const searchDivNoteTwo = document.getElementById("WIN_5_1000000151");
 
     if (mainDivNote) {
         if (!mainDivNote.querySelector("#btnNetEyeMain")) {
@@ -18,6 +19,20 @@ function addBtnNetEye() {
 
     if (searchDivNote) {
         if (!searchDivNote.querySelector("#btnNetEyeSearch")) {
+            var btnNetEyeSearch = document.createElement("button");
+            btnNetEyeSearch.textContent = "";
+            btnNetEyeSearch.id = "btnNetEyeSearch";
+            btnNetEyeSearch.onclick = function() {
+                var NetEyeUrl = buildNetEyeUrl();
+                openWindowMiniaturized(NetEyeUrl);
+            };
+
+            searchDivNote.appendChild(btnNetEyeSearch);
+        }
+    }
+
+    if (searchDivNote) {
+        if (!searchDivNoteTwo.querySelector("#btnNetEyeSearchTwo")) {
             var btnNetEyeSearch = document.createElement("button");
             btnNetEyeSearch.textContent = "";
             btnNetEyeSearch.id = "btnNetEyeSearch";
