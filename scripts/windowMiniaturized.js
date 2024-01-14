@@ -35,7 +35,7 @@ function addBtnNetEye() {
         if (!searchDivNoteTwo.querySelector("#btnNetEyeSearchTwo")) {
             var btnNetEyeSearch = document.createElement("button");
             btnNetEyeSearch.textContent = "";
-            btnNetEyeSearch.id = "btnNetEyeSearch";
+            btnNetEyeSearch.id = "btnNetEyeSearchTwo";
             btnNetEyeSearch.onclick = function() {
                 var NetEyeUrl = buildNetEyeUrl();
                 openWindowMiniaturized(NetEyeUrl);
