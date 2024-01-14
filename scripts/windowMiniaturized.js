@@ -33,15 +33,15 @@ function addBtnNetEye() {
 
     if (searchDivNoteTwo) {
         if (!searchDivNoteTwo.querySelector("#btnNetEyeSearchTwo")) {
-            var btnNetEyeSearch = document.createElement("button");
-            btnNetEyeSearch.textContent = "";
-            btnNetEyeSearch.id = "btnNetEyeSearchTwo";
-            btnNetEyeSearch.onclick = function() {
+            var btnNetEyeSearchTwo = document.createElement("button");
+            btnNetEyeSearchTwo.textContent = "";
+            btnNetEyeSearchTwo.id = "btnNetEyeSearchTwo";
+            btnNetEyeSearchTwo.onclick = function() {
                 var NetEyeUrl = buildNetEyeUrl();
                 openWindowMiniaturized(NetEyeUrl);
             };
 
-            searchDivNote.appendChild(btnNetEyeSearch);
+            searchDivNote.appendChild(btnNetEyeSearchTwo);
         }
     }
 }
