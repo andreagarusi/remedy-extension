@@ -93,9 +93,10 @@ textarea,
 
 /* NetEye button */
 
-#btnNetEyeMain,
-#btnNetEyeSearch,
-#btnNetEyeSearchTwo {
+#btnNetEye_WIN_1_1000000151,
+#btnNetEye_WIN_3_1000000151,
+#btnNetEye_WIN_4_1000000151,
+#btnNetEye_WIN_5_1000000151 {
     width: 15%;
     height: 100%;
     left: 20%;
