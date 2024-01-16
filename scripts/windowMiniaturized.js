@@ -1,3 +1,4 @@
+// NetEye
 function addBtnNetEye() {
     const regex = /WIN_(\d{1,2})_1000000151/;
     const divElements = document.querySelectorAll('div[id^="WIN_"][id$="_1000000151"]');
@@ -20,8 +21,33 @@ function addBtnNetEye() {
     });
 }
 
+// Back Office
+function addBtnBackOffice() {
+    const regex = /WIN_(\d{1,2})_303497300/;
+    const divElements = document.querySelectorAll('div[id^="WIN_"][id$="_303497300"]');
+
+    divElements.forEach(function(divElement) {
+        const match = divElement.id.match(regex);
+        if (match && !divElement.querySelector("#btnBackOffice_" + match[0])) {
+            var btnBackOffice = document.createElement("button");
+            btnBackOffice.textContent = "";
+            btnBackOffice.id = "btnBackOffice_" + match[0];
+            btnBackOffice.classList.add("btnBackOffice");
+            btnBackOffice.title = "Back Office Shortcut"
+            btnBackOffice.onclick = function() {
+                var BackOfficeUrl = buildBackOfficeUrl(match[0]);
+                openWindowMiniaturized(BackOfficeUrl);
+            };
+
+            divElement.appendChild(btnBackOffice);
+        }
+    });
+}
+
+setInterval(addBtnBackOffice, 1500);
 setInterval(addBtnNetEye, 1500);
 
+// NetEye
 function buildNetEyeUrl(containerId) {
     var textareaId = "arid_" + containerId.substring(0, containerId.lastIndexOf("_")) + "_1000000151";
     var noteContent = document.getElementById(textareaId).value;
@@ -34,6 +60,21 @@ function buildNetEyeUrl(containerId) {
     }
 
     return "https://monitor.irideos.it/neteye/dashboard";
+}
+
+// Back Office
+function buildBackOfficeUrl(containerId) {
+    var textareaId = "arid_" + containerId.substring(0, containerId.lastIndexOf("_")) + "_303497300";
+    var noteContent = document.getElementById(textareaId).value;
+
+    var regex = /[A-Za-z]+[0-9]+/;
+    var matchHostname = noteContent.match(regex);
+
+    if (matchHostname) {
+        return "https://backoffice.mclink.it/p2/adslinfo?user=" + matchHostname[0];
+    }
+
+    return "https://backoffice.mclink.it/p2/main";
 }
 
 
