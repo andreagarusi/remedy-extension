@@ -21,7 +21,6 @@ function addBtnNetEye() {
 
 setInterval(addBtnNetEye, 1500);
 
-
 function buildNetEyeUrl(containerId) {
     var textareaId = "arid_" + containerId.substring(0, containerId.lastIndexOf("_")) + "_1000000151";
     var noteContent = document.getElementById(textareaId).value;
