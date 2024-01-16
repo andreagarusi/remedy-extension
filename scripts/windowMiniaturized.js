@@ -9,6 +9,7 @@ function addBtnNetEye() {
             btnNetEye.textContent = "";
             btnNetEye.id = "btnNetEye_" + match[0];
             btnNetEye.classList.add("btnNetEye");
+            btnNetEye.title = "NetEye Shortcut"
             btnNetEye.onclick = function() {
                 var NetEyeUrl = buildNetEyeUrl(match[0]);
                 openWindowMiniaturized(NetEyeUrl);
