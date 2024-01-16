@@ -1,53 +1,75 @@
-function addBtnNetEye() {
-    const mainDivNote = document.getElementById("WIN_3_1000000151");
-    const searchDivNote = document.getElementById("WIN_4_1000000151");
-    const searchDivNoteTwo = document.getElementById("WIN_5_1000000151");
+function gestisciBottoni() {
+    var elementi = document.querySelectorAll('[arid="1000000151"]');
 
-    if (mainDivNote) {
-        if (!mainDivNote.querySelector("#btnNetEyeMain")) {
-            var btnNetEyeMain = document.createElement("button");
-            btnNetEyeMain.textContent = "";
-            btnNetEyeMain.id = "btnNetEyeMain";
-            btnNetEyeMain.onclick = function() {
-                var NetEyeUrl = buildNetEyeUrl();
-                openWindowMiniaturized(NetEyeUrl);
-            };
+    elementi.forEach(function(elemento) {
+        var btnNetEye = elemento.querySelector('.btnNetEye');
 
-            mainDivNote.appendChild(btnNetEyeMain);
+        if (!btnNetEye) {
+            btnNetEye = document.createElement('button');
+            btnNetEye.className = 'btnNetEye';
+            btnNetEye.textContent = 'Il tuo testo qui';
+
+            elemento.appendChild(btnNetEye);
+
+            console.log('Bottone creato con successo per l\'elemento con arid="1000000151".');
+        } else {
+            console.log('Il bottone con classe "btnNetEye" è già presente per l\'elemento con arid="1000000151".');
         }
-    }
-
-    if (searchDivNote) {
-        if (!searchDivNote.querySelector("#btnNetEyeSearch")) {
-            var btnNetEyeSearch = document.createElement("button");
-            btnNetEyeSearch.textContent = "";
-            btnNetEyeSearch.id = "btnNetEyeSearch";
-            btnNetEyeSearch.onclick = function() {
-                var NetEyeUrl = buildNetEyeUrl();
-                openWindowMiniaturized(NetEyeUrl);
-            };
-
-            searchDivNote.appendChild(btnNetEyeSearch);
-        }
-    }
-
-    if (searchDivNoteTwo) {
-        if (!searchDivNoteTwo.querySelector("#btnNetEyeSearchTwo")) {
-            var btnNetEyeSearchTwo = document.createElement("button");
-            btnNetEyeSearchTwo.textContent = "";
-            btnNetEyeSearchTwo.id = "btnNetEyeSearchTwo";
-            btnNetEyeSearchTwo.onclick = function() {
-                var NetEyeUrl = buildNetEyeUrl();
-                openWindowMiniaturized(NetEyeUrl);
-            };
-
-            searchDivNote.appendChild(btnNetEyeSearchTwo);
-        }
-    }
+    });
 }
 
-// Esegui la funzione addBtnNetEye ogni 1,5 secondo
-setInterval(addBtnNetEye, 1500);
+setInterval(gestisciBottoni, 1500);
+
+// function addBtnNetEye() {
+//     const mainDivNote = document.getElementById("WIN_3_1000000151");
+//     const searchDivNote = document.getElementById("WIN_4_1000000151");
+//     const searchDivNoteTwo = document.getElementById("WIN_5_1000000151");
+
+//     if (mainDivNote) {
+//         if (!mainDivNote.querySelector("#btnNetEyeMain")) {
+//             var btnNetEyeMain = document.createElement("button");
+//             btnNetEyeMain.textContent = "";
+//             btnNetEyeMain.id = "btnNetEyeMain";
+//             btnNetEyeMain.onclick = function() {
+//                 var NetEyeUrl = buildNetEyeUrl();
+//                 openWindowMiniaturized(NetEyeUrl);
+//             };
+
+//             mainDivNote.appendChild(btnNetEyeMain);
+//         }
+//     }
+
+//     if (searchDivNote) {
+//         if (!searchDivNote.querySelector("#btnNetEyeSearch")) {
+//             var btnNetEyeSearch = document.createElement("button");
+//             btnNetEyeSearch.textContent = "";
+//             btnNetEyeSearch.id = "btnNetEyeSearch";
+//             btnNetEyeSearch.onclick = function() {
+//                 var NetEyeUrl = buildNetEyeUrl();
+//                 openWindowMiniaturized(NetEyeUrl);
+//             };
+
+//             searchDivNote.appendChild(btnNetEyeSearch);
+//         }
+//     }
+
+//     if (searchDivNoteTwo) {
+//         if (!searchDivNoteTwo.querySelector("#btnNetEyeSearchTwo")) {
+//             var btnNetEyeSearchTwo = document.createElement("button");
+//             btnNetEyeSearchTwo.textContent = "";
+//             btnNetEyeSearchTwo.id = "btnNetEyeSearchTwo";
+//             btnNetEyeSearchTwo.onclick = function() {
+//                 var NetEyeUrl = buildNetEyeUrl();
+//                 openWindowMiniaturized(NetEyeUrl);
+//             };
+
+//             searchDivNote.appendChild(btnNetEyeSearchTwo);
+//         }
+//     }
+// }
+
+// // Esegui la funzione addBtnNetEye ogni 1,5 secondo
+// setInterval(addBtnNetEye, 1500);
 
 // Funzione per estrarre hostname dal campo Note, restituisce url NetEye
 function buildNetEyeUrl() {
