@@ -25,6 +25,7 @@ setInterval(addBtnNetEye, 1500);
 function buildNetEyeUrl(containerId) {
     var textareaId = "arid_" + containerId.substring(0, containerId.lastIndexOf("_")) + "_1000000151";
     var noteContent = document.getElementById(textareaId).value;
+
     var regex = /[A-Za-z0-9]+-[A-Za-z0-9]+@([A-Za-z0-9]+(\.[A-Za-z0-9]+)+)|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)\.([A-Za-z0-9]+(-[A-Za-z0-9]+)+)\.[A-Za-z0-9]+|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)_[A-Za-z0-9]+|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)/;
     var matchHostname = noteContent.match(regex);
 
@@ -37,14 +38,11 @@ function buildNetEyeUrl(containerId) {
 
 
 function openWindowMiniaturized(pageUrl) {
-    // Specifica le dimensioni della finestra in miniatura
     var windowWidth = 1200;
     var windowHeight = 550;
 
-    // Calcola la posizione centrale della finestra principale
     var xPos = (window.innerWidth - windowWidth) / 2;
     var yPos = (window.innerHeight - windowHeight) / 2;
 
-    // Apertura di una nuova finestra con l'URL e le dimensioni specificate
     window.open(pageUrl, "Window Miniaturized", "width=" + windowWidth + ", height=" + windowHeight + ", top=" + yPos + ", left=" + xPos);
 }
