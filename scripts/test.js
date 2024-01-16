@@ -7,6 +7,7 @@ function addBtnNetEye() {
         if (match && !divElement.querySelector("#btnNetEye_" + match[1])) {
             var btnNetEye = document.createElement("button");
             btnNetEye.textContent = "";
+            console.log(match[1]);
             btnNetEye.id = "btnNetEye_" + match[1];
             btnNetEye.classList.add("btnNetEye");
             btnNetEye.onclick = function() {
@@ -21,9 +22,29 @@ function addBtnNetEye() {
 
 setInterval(addBtnNetEye, 1500);
 
+
+// Funzione per estrarre hostname dal campo Note, restituisce url NetEye
+function buildNetEyeUrl() {
+    var noteContent = document.getElementById("arid_WIN_3_1000000151").value;
+    var regex = /[A-Za-z0-9]+-[A-Za-z0-9]+@([A-Za-z0-9]+(\.[A-Za-z0-9]+)+)|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)\.([A-Za-z0-9]+(-[A-Za-z0-9]+)+)\.[A-Za-z0-9]+|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)_[A-Za-z0-9]+|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)/;
+    var matchHostname = noteContent.match(regex);
+
+    if (matchHostname) {
+        // console.log(matchHostname);
+        return "https://monitor.irideos.it/neteye/search?q=" + matchHostname[0] + "#!/neteye/monitoring/host/show?host=" + matchHostname[0];
+    }
+
+    // Restituisce url della dashboard NetEye se nessun match è stato trovato
+    return "https://monitor.irideos.it/neteye/dashboard";
+}
+
+
 function buildNetEyeUrl(containerId) {
-    var textareaId = "arid_" + containerId.substring(0, containerId.lastIndexOf("_"));
+    var textareaId = "arid_" + containerId.substring(0, containerId.lastIndexOf("_")) + "_1000000151";
+
+    // Ottieni il valore della textarea
     var noteContent = document.getElementById(textareaId).value;
+
     var regex = /[A-Za-z0-9]+-[A-Za-z0-9]+@([A-Za-z0-9]+(\.[A-Za-z0-9]+)+)|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)\.([A-Za-z0-9]+(-[A-Za-z0-9]+)+)\.[A-Za-z0-9]+|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)_[A-Za-z0-9]+|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)/;
     var matchHostname = noteContent.match(regex);
 
@@ -33,6 +54,7 @@ function buildNetEyeUrl(containerId) {
 
     return "https://monitor.irideos.it/neteye/dashboard";
 }
+
 
 function openWindowMiniaturized(pageUrl) {
     // Specifica le dimensioni della finestra in miniatura
