@@ -95,7 +95,8 @@ textarea,
 
 #btnNetEyeMain,
 #btnNetEyeSearch,
-#btnNetEyeSearchTwo {
+#btnNetEyeSearchTwo,
+.btnNetEye {
     width: 15%;
     height: 100%;
     left: 20%;
