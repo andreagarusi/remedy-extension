@@ -26,7 +26,7 @@ function buildNetEyeUrl(containerId) {
     var textareaId = "arid_" + containerId.substring(0, containerId.lastIndexOf("_")) + "_1000000151";
     var noteContent = document.getElementById(textareaId).value;
 
-    var regex = /[A-Za-z0-9]+-[A-Za-z0-9]+@([A-Za-z0-9]+(\.[A-Za-z0-9]+)+)|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)\.([A-Za-z0-9]+(-[A-Za-z0-9]+)+)\.[A-Za-z0-9]+|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)_[A-Za-z0-9]+|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)/;
+    var regex = /([A-Za-z0-9]+(-[A-Za-z0-9]+)+)/;
     var matchHostname = noteContent.match(regex);
 
     if (matchHostname) {
