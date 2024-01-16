@@ -44,7 +44,31 @@ function addBtnBackOffice() {
     });
 }
 
+// Nedi
+function addBtnNedi() {
+    const regex = /WIN_(\d{1,2})_1000000000/;
+    const divElements = document.querySelectorAll('div[id^="WIN_"][id$="_1000000000"]');
+
+    divElements.forEach(function(divElement) {
+        const match = divElement.id.match(regex);
+        if (match && !divElement.querySelector("#btnNedi_" + match[0])) {
+            var btnNedi = document.createElement("button");
+            btnNedi.textContent = "";
+            btnNedi.id = "btnNedi_" + match[0];
+            btnNedi.classList.add("btnNedi");
+            btnNedi.title = "Nedi Shortcut"
+            btnNedi.onclick = function() {
+                var NediUrl = buildNediUrl(match[0]);
+                openWindowMiniaturized(NediUrl);
+            };
+
+            divElement.appendChild(btnNedi);
+        }
+    });
+}
+
 setInterval(addBtnBackOffice, 1500);
+setInterval(addBtnNedi, 1500);
 setInterval(addBtnNetEye, 1500);
 
 // NetEye
@@ -75,6 +99,21 @@ function buildBackOfficeUrl(containerId) {
     }
 
     return "https://backoffice.mclink.it/p2/main";
+}
+
+// Nedi
+function buildNediUrl(containerId) {
+    var textareaId = "arid_" + containerId.substring(0, containerId.lastIndexOf("_")) + "_1000000000";
+    var noteContent = document.getElementById(textareaId).value;
+
+    var regex = /([A-Za-z0-9]+(-[A-Za-z0-9]+)+)/;
+    var matchHostname = noteContent.match(regex);
+
+    if (matchHostname) {
+        return "https://100.67.0.15/nedi/Devices-Config.php?shc=" + matchHostname[0];
+    }
+
+    return "https://100.67.0.15/nedi/Devices-Config.php";
 }
 
 
