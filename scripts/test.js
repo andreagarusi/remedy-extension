@@ -23,8 +23,19 @@ function gestisciBottoni() {
 setInterval(gestisciBottoni, 1500);
 
 function buildNetEyeUrl() {
-    var noteContent = document.getElementById("arid_WIN_3_1000000151").value;
+    var elements = document.querySelectorAll('[arid="1000000151"]');
     var regex = /[A-Za-z0-9]+-[A-Za-z0-9]+@([A-Za-z0-9]+(\.[A-Za-z0-9]+)+)|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)\.([A-Za-z0-9]+(-[A-Za-z0-9]+)+)\.[A-Za-z0-9]+|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)_[A-Za-z0-9]+|([A-Za-z0-9]+(-[A-Za-z0-9]+)+)/;
+
+    elements.forEach(function(element) {
+        var textarea = element.querySelector('textarea');
+
+        if (textarea) {
+            var noteContent = textarea.value;
+        } else {
+            return "https://monitor.irideos.it/neteye/dashboard";
+        }
+    });
+
     var matchHostname = noteContent.match(regex);
 
     if (matchHostname) {
@@ -32,7 +43,6 @@ function buildNetEyeUrl() {
         return "https://monitor.irideos.it/neteye/search?q=" + matchHostname[0] + "#!/neteye/monitoring/host/show?host=" + matchHostname[0];
     }
 
-    // Restituisce url della dashboard NetEye se nessun match è stato trovato
     return "https://monitor.irideos.it/neteye/dashboard";
 }
 
