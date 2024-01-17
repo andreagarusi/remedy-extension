@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     var table = document.getElementById('T301444200');
-    var cells = table.getElementsByTagName('td');
+    var elements = table.querySelectorAll('*');
 
-    for (var i = 0; i < cells.length; i++) {
-        var cellText = cells[i].textContent || cells[i].innerText;
+    elements.forEach(function(element) {
+        var elementText = element.textContent || element.innerText;
 
-        if (cellText.includes('#tas')) {
-            // Aggiungi la classe per lo stile
-            cells[i].classList.add('tas-highlight');
+        if (elementText.includes('#tas')) {
+            element.classList.add('tas-highlight');
         }
-    }
+    });
 });
