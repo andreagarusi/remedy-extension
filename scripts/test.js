@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     var table = document.getElementById('T301444200');
-    var elements = table.querySelectorAll('*');
+    var spans = table.getElementsByTagName('span');
 
-    elements.forEach(function(element) {
-        var elementText = element.textContent || element.innerText;
+    for (var i = 0; i < spans.length; i++) {
+        var spanText = spans[i].textContent || spans[i].innerText;
 
-        if (elementText.includes('#tas')) {
-            element.classList.add('tas-highlight');
+        if (spanText.includes('#tas')) {
+            spans[i].classList.add('tas-highlight');
         }
-    });
+    }
 });
