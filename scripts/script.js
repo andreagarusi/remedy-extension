@@ -63,6 +63,19 @@ function ticketTableChecker() {
 
         ticketTable.setAttribute("checked", "true");
     }
+
+    // script di test
+    var spanElement = document.querySelector('span');
+    var textContent = spanElement.textContent;
+    var match = textContent.match(/#.*? -/);
+
+    if (match) {
+        var highlightedText = match[0];
+        var remainingText = textContent.replace(highlightedText, '');
+
+        spanElement.innerHTML = '<span class="highlight">' + highlightedText + '</span>' + remainingText;
+    }
+
 }
 
 // Verifica elementi della tabella ticket ogni 0,5 sec
