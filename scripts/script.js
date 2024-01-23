@@ -17,6 +17,21 @@ function ticketTableChecker() {
     const checkedTicketTable = document.querySelector('table[checked="true"]');
 
     if (ticketTable && !checkedTicketTable) {
+        var spans = ticketTable.getElementsByTagName("span");
+
+        for (var i = 0; i < spans.length; i++) {
+            var text = spans[i].innerText || spans[i].textContent;
+
+            // Trova la parte del testo tra '#' e '-'
+            var match = text.match(/#([^#]*?)-/);
+
+            if (match) {
+                var highlightedText = match[1];
+                var replacedText = text.replace(highlightedText, '<span class="highlight">' + highlightedText + '</span>');
+                spans[i].innerHTML = replacedText;
+            }
+        }
+
         const data = [];
         const statoMap = {
             "assegnato": {
