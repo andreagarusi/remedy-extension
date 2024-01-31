@@ -28,6 +28,9 @@ function ticketTableChecker() {
             if (match) {
                 var highlightedText = match[1];
                 var replacedText = text.replace(highlightedText, '<span class="highlight">' + highlightedText + '</span>');
+                if (highlightedText.toLowerCase().includes("tas")) {
+                    replacedText = text.replace(highlightedText, '<span class="highlight" style="background-color: green;">' + highlightedText + '</span>');
+                }
                 spans[i].innerHTML = replacedText;
             }
         }
