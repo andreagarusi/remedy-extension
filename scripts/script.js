@@ -30,11 +30,11 @@ function ticketTableChecker() {
                 var backgroundColor = '#0d89a575';
 
                 if (highlightedText.includes("tas")) {
-                    backgroundColor = '#99cd87';
+                    backgroundColor = '#c3c3c3';
                 } else if (["tk", "dpr", "tim", "eolo", "linkem", "gtt", "fw", "fastweb", "vf", "vodafone", "of", "open fiber"].some(keyword => highlightedText.includes(keyword))) {
                     backgroundColor = '#e5ab54';
                 } else if (["contatto", "contattare"].some(keyword => highlightedText.includes(keyword))) {
-                    backgroundColor = '#0000';
+                    backgroundColor = '#99cd87';
                 }
 
                 if (backgroundColor) {
