@@ -37,10 +37,8 @@ function ticketTableChecker() {
                     backgroundColor = '#99cd87';
                 }
 
-                if (backgroundColor) {
-                    var replacedText = '<span class="highlight" style="background-color: ' + backgroundColor + ';">' + match[1] + '</span>';
-                    spans[i].innerHTML = text.replace(match[1], replacedText);
-                }
+                var replacedText = '<span class="highlight" style="background-color: ' + backgroundColor + ';">' + match[1] + '</span>';
+                spans[i].innerHTML = text.replace(match[1], replacedText);
             }
         }
 
