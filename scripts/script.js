@@ -26,12 +26,19 @@ function ticketTableChecker() {
             var match = text.match(/#([^#]*?)-/);
 
             if (match) {
-                var highlightedText = match[1];
-                var replacedText = text.replace(highlightedText, '<span class="highlight">' + highlightedText + '</span>');
-                if (highlightedText.toLowerCase().includes("tas")) {
-                    replacedText = text.replace(highlightedText, '<span class="highlight" style="background-color: green;">' + highlightedText + '</span>');
+                var highlightedText = match[1].toLowerCase();
+                var backgroundColor = '#0d89a575';
+
+                if (highlightedText.includes("tas")) {
+                    backgroundColor = '#99cd87';
+                } else if (["tk", "dpr", "tim", "eolo", "linkem", "gtt", "fw", "fastweb", "vf", "vodafone"].some(keyword => highlightedText.includes(keyword))) {
+                    backgroundColor = '#e5ab54';
                 }
-                spans[i].innerHTML = replacedText;
+
+                if (backgroundColor) {
+                    var replacedText = '<span class="highlight" style="background-color: ' + backgroundColor + ';">' + match[1] + '</span>';
+                    spans[i].innerHTML = text.replace(match[1], replacedText);
+                }
             }
         }
 
