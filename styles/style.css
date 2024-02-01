@@ -1,7 +1,8 @@
 /* console view */
 
 .assigned {
-    background-color: #ffcdd2 !important;
+    color: white !important;
+    background-color: #a92929 !important;
 }
 
 .inProgress {
