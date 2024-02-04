@@ -23,7 +23,7 @@ function ticketTableChecker() {
             var text = spans[i].innerText || spans[i].textContent;
 
             // Trova la parte del testo tra '#' e '-'
-            var match = text.match(/#([^#]*?)-/);
+            var match = text.match(/#([^#]*?)-/gm);
 
             if (match) {
                 var highlightedText = match[1].toLowerCase();
