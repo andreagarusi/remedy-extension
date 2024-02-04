@@ -32,6 +32,8 @@ function ticketTableChecker() {
                         backgroundColor = '#c3c3c3';
                     } else if (["tk", "master", "dpr", "tim", "eolo", "linkem", "gtt", "fw", "fastweb", "vf", "vodafone", "of", "open fiber"].some(keyword => highlightedText.includes(keyword))) {
                         backgroundColor = '#e5ab54';
+                    } else if (["reperibile"].some(keyword => highlightedText.includes(keyword))) {
+                        backgroundColor = '#ef7474';
                     } else if (["contatto", "contattare"].some(keyword => highlightedText.includes(keyword))) {
                         backgroundColor = '#99cd87';
                     }
