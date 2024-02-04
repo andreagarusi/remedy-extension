@@ -21,24 +21,26 @@ function ticketTableChecker() {
 
         for (var i = 0; i < spans.length; i++) {
             var text = spans[i].innerText || spans[i].textContent;
+            var matches = text.match(/#([^#]*?)-/g);
 
-            // Trova la parte del testo tra '#' e '-'
-            var match = text.match(/#([^#]*?)-/gm);
+            if (matches) {
+                matches.forEach(function(match) {
+                    var highlightedText = match.slice(1, -1).toLowerCase();
+                    var backgroundColor = '#0d89a575';
 
-            if (match) {
-                var highlightedText = match[1].toLowerCase();
-                var backgroundColor = '#0d89a575';
+                    if (highlightedText.includes("tas")) {
+                        backgroundColor = '#c3c3c3';
+                    } else if (["tk", "master", "dpr", "tim", "eolo", "linkem", "gtt", "fw", "fastweb", "vf", "vodafone", "of", "open fiber"].some(keyword => highlightedText.includes(keyword))) {
+                        backgroundColor = '#e5ab54';
+                    } else if (["contatto", "contattare"].some(keyword => highlightedText.includes(keyword))) {
+                        backgroundColor = '#99cd87';
+                    }
 
-                if (highlightedText.includes("tas")) {
-                    backgroundColor = '#c3c3c3';
-                } else if (["tk", "master", "dpr", "tim", "eolo", "linkem", "gtt", "fw", "fastweb", "vf", "vodafone", "of", "open fiber"].some(keyword => highlightedText.includes(keyword))) {
-                    backgroundColor = '#e5ab54';
-                } else if (["contatto", "contattare"].some(keyword => highlightedText.includes(keyword))) {
-                    backgroundColor = '#99cd87';
-                }
+                    var replacedText = '<span class="highlight" style="background-color: ' + backgroundColor + ';">' + highlightedText + '</span>';
+                    text = text.replace(match, replacedText);
+                });
 
-                var replacedText = '<span class="highlight" style="background-color: ' + backgroundColor + ';">' + match[1] + '</span>';
-                spans[i].innerHTML = text.replace(match[1], replacedText);
+                spans[i].innerHTML = text;
             }
         }
 
