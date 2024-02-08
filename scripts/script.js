@@ -28,10 +28,10 @@ function ticketTableChecker() {
                     var highlightedText = match.slice(1, -1).toLowerCase();
                     var backgroundColor = '#0d89a575';
 
-                    if (["tas", "interv"].some(keyword => highlightedText.includes(keyword))) {
-                        backgroundColor = '#c3c3c3';
-                    } else if (["tk", "master", "dpr", "tim", "eolo", "linkem", "gtt", "fw", "fastweb", "vf", "vodafone", "of", "open fiber"].some(keyword => highlightedText.includes(keyword))) {
+                    if (["tk", "master", "dpr", "tim", "eolo", "linkem", "gtt", "fw", "fastweb", "vf", "vodafone", "of", "open fiber"].some(keyword => highlightedText.includes(keyword))) {
                         backgroundColor = '#e5ab54';
+                    } else if (["tas", "interv"].some(keyword => highlightedText.includes(keyword))) {
+                        backgroundColor = '#c3c3c3';
                     } else if (["reperibil", "sollecita", "priorit"].some(keyword => highlightedText.includes(keyword))) {
                         backgroundColor = '#ef7474';
                     } else if (["contatt"].some(keyword => highlightedText.includes(keyword))) {
