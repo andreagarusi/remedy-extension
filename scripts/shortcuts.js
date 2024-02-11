@@ -38,13 +38,13 @@ document.addEventListener('keydown', function(event) {
 
     // Nuovo incidente
     if (event.ctrlKey && event.shiftKey && (event.key === 'n' || event.key === 'N')) {
-        document.getElementById("WIN_0_304276690").click();
+        document.querySelector("#WIN_0_80077 > fieldset > div > div > div > div:nth-child(11) > div > div:nth-child(3) > a").click();
         event.preventDefault();
     }
 
     // Ricerca incidente
     if (event.ctrlKey && event.shiftKey && (event.key === 'f' || event.key === 'F')) {
-        document.getElementById("WIN_0_304276710").click();
+        document.querySelector("#WIN_0_80077 > fieldset > div > div > div > div:nth-child(11) > div > div:nth-child(3) > a").click();
         event.preventDefault();
     }
 
