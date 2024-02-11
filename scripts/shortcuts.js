@@ -7,8 +7,15 @@ document.addEventListener('keydown', function(event) {
 
     // Aggiorna
     if (event.ctrlKey && (event.key === 'r' || event.key === 'R')) {
-        document.querySelector('.Ref.btn.btn3d.TableBtn').click();
-        event.preventDefault();
+        var elements = document.querySelectorAll('.Ref.btn.btn3d.TableBtn');
+
+        if (elements.length > 0) {
+            elements.forEach(function(element) {
+                element.click();
+            });
+
+            event.preventDefault();
+        }
     }
 
     // Aggiungi
