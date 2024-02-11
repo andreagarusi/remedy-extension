@@ -1,50 +1,31 @@
 document.addEventListener('keydown', function(event) {
     // Salva
     if (event.ctrlKey && (event.key === 's' || event.key === 'S')) {
-        document.getElementById("WIN_3_301614800").click();
+        document.querySelector('[id$="301614800"]').click();
         event.preventDefault();
     }
 
     // Aggiorna
     if (event.ctrlKey && (event.key === 'r' || event.key === 'R')) {
-        var elements = document.querySelectorAll('.Ref.btn.btn3d.TableBtn');
-
-        if (elements.length > 0) {
-            elements.forEach(function(element) {
-                element.click();
-            });
-
-            event.preventDefault();
-        }
+        document.querySelector('[id$="301389614"] > div.TableHdr > table > tbody > tr > td.TableHdrR > a.Ref.btn.btn3d.TableBtn').click();
+        event.preventDefault();
     }
 
     // Aggiungi
     if (event.ctrlKey && (event.key === 'Enter' || event.key === 'NumpadEnter')) {
-        document.getElementById("WIN_3_304247110").click();
+        document.querySelector('[id$="304247110"]').click();
         event.preventDefault();
     }
 
     // Back
     if (event.altKey && event.key === 'ArrowLeft') {
-        document.getElementById("WIN_0_304248620").click();
+        document.querySelector('[id$="304248620"]').click();
         event.preventDefault();
     }
 
     // Next
     if (event.altKey && event.key === 'ArrowRight') {
-        document.getElementById("WIN_0_304248650").click();
-        event.preventDefault();
-    }
-
-    // Nuovo incidente
-    if (event.ctrlKey && event.shiftKey && (event.key === 'n' || event.key === 'N')) {
-        document.querySelector("#WIN_0_80077 > fieldset > div > div > div > div:nth-child(11) > div > div:nth-child(3) > a").click();
-        event.preventDefault();
-    }
-
-    // Ricerca incidente
-    if (event.ctrlKey && event.shiftKey && (event.key === 'f' || event.key === 'F')) {
-        document.querySelector("#WIN_0_80077 > fieldset > div > div > div > div:nth-child(11) > div > div:nth-child(3) > a").click();
+        document.querySelector('[id$="304248650"]').click();
         event.preventDefault();
     }
 
