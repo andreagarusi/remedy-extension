@@ -98,6 +98,10 @@ textarea,
     padding-top: 10px !important;
 }
 
+#artooltip {
+    display: none;
+}
+
 
 /* Shortcut Buttons */
 
