@@ -42,9 +42,8 @@ document.addEventListener('keydown', function(event) {
 
         if (targetElement) {
             targetElement.click();
+            event.preventDefault();
         }
-
-        event.preventDefault();
     }
 
     // Ricerca incidente
@@ -53,9 +52,8 @@ document.addEventListener('keydown', function(event) {
 
         if (targetElement) {
             targetElement.click();
+            event.preventDefault();
         }
-
-        event.preventDefault();
     }
 
 });
