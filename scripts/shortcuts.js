@@ -7,7 +7,7 @@ document.addEventListener('keydown', function(event) {
 
     // Aggiorna
     if (event.ctrlKey && (event.key === 'r' || event.key === 'R')) {
-        document.querySelector('[id$="301389614"] > div.TableHdr > table > tbody > tr > td.TableHdrR > a.Ref.btn.btn3d.TableBtn').click();
+        document.querySelector('[id$="301444200"] > div.TableHdr > table > tbody > tr > td.TableHdrR > a.Ref.btn.btn3d.TableBtn').click();
         event.preventDefault();
     }
 
