@@ -9,4 +9,13 @@ document.addEventListener('keydown', function(event) {
         event.preventDefault();
     }
 
+    if (event.altKey && event.key === 'ArrowLeft') {
+        document.getElementById("WIN_0_304248620").click();
+        event.preventDefault();
+    }
+
+    if (event.altKey && event.key === 'ArrowRight') {
+        document.getElementById("WIN_0_304248650").click();
+        event.preventDefault();
+    }
 });
