@@ -5,13 +5,13 @@ document.addEventListener('keydown', function(event) {
         event.preventDefault();
     }
 
-    // Aggiungi
+    // Aggiorna
     if (event.ctrlKey && (event.key === 'r' || event.key === 'R')) {
         document.querySelector('.Ref.btn.btn3d.TableBtn').click();
         event.preventDefault();
     }
 
-    // Aggiorna
+    // Aggiungi
     if (event.ctrlKey && (event.key === 'Enter' || event.key === 'NumpadEnter')) {
         document.getElementById("WIN_3_304247110").click();
         event.preventDefault();
