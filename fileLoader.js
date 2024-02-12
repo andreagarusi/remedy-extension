@@ -5,6 +5,7 @@ var domainPrefix = "https://andreagarusi.github.io/remedy-extension/";
 var jsFiles = [
     domainPrefix + "scripts/script.js",
     domainPrefix + "scripts/windowMiniaturized.js",
+    domainPrefix + "scripts/shortcuts.js",
     // domainPrefix + "otherFile.js",
 ];
 
