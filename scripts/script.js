@@ -34,7 +34,7 @@ function ticketTableChecker() {
                         backgroundColor = '#c3c3c3';
                     } else if (["reperibil", "sollecita", "priorit"].some(keyword => highlightedText.includes(keyword))) {
                         backgroundColor = '#ef7474';
-                    } else if (["contatt"].some(keyword => highlightedText.includes(keyword))) {
+                    } else if (["cont"].some(keyword => highlightedText.includes(keyword))) {
                         backgroundColor = '#99cd87';
                     }
 
