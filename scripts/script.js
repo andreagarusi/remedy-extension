@@ -27,6 +27,8 @@ function ticketTableChecker() {
                 matches.forEach(function(match) {
                     var highlightedText = match.slice(1, -1).toLowerCase();
                     var backgroundColor = '#0d89a575';
+                    var textColor = '#000';
+                    var textStyle = 'normal';
 
                     if (["tk", "master", "dpr", "tim", "eolo", "linkem", "gtt", "fw", "fastweb", "vf", "vodafone", "of", "open fiber"].some(keyword => highlightedText.includes(keyword))) {
                         backgroundColor = '#e5ab54';
@@ -34,11 +36,15 @@ function ticketTableChecker() {
                         backgroundColor = '#c3c3c3';
                     } else if (["reperibil", "sollecita", "priorit"].some(keyword => highlightedText.includes(keyword))) {
                         backgroundColor = '#ef7474';
-                    } else if (["cont"].some(keyword => highlightedText.includes(keyword))) {
+                    } else if (["contat"].some(keyword => highlightedText.includes(keyword))) {
                         backgroundColor = '#99cd87';
+                    } else if (["inc00"].some(keyword => highlightedText.includes(keyword))) {
+                        backgroundColor = '#471ee945';
+                        textColor = '#004376';
+                        textStyle = 'italic';
                     }
 
-                    var replacedText = '<span class="highlight" style="background-color: ' + backgroundColor + ';">' + highlightedText + '</span>';
+                    var replacedText = '<span class="highlight" style="background-color: ' + backgroundColor + '; color: ' + textColor + '; font-style: ' + textStyle + '>' + highlightedText + '</span>';
                     text = text.replace(match, replacedText);
                 });
 
